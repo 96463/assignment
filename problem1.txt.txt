@@ -1,0 +1,61 @@
+//problem 1:
+---------------------------
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+void swappingI(int,int []);
+void swappingF(int,int,int[]);
+int main()
+{
+    int a[10];
+    int i=0,n,k;
+    cout<<"enter the size"<<endl;
+    cin>>n;
+    int j=n-1;
+    cout<<"enter the array"<<endl;
+    for(k=0;k<n;k++)
+    {
+        cin>>a[k];
+    }
+    while(j!=i)
+    {
+    if(abs(a[i])>abs(a[i+1]))
+    {
+        swappingF(i,j,a);
+        j--;
+    }
+    else
+    {
+        swappingI(i,a);
+        swappingF(i,j,a);
+        j--;
+    }
+ }
+    cout<<"sorted array is:"<<endl;
+    for(k=0;k<n;k++)
+    {
+        cout<<a[k];
+    }
+}
+void swappingI(int i,int a[10])
+{
+    int temp;
+    temp=a[i];
+    a[i]=a[i+1];
+    a[i+1]=temp;
+}
+void swappingF(int i,int j,int a[10])
+{
+    if(abs(a[i])<abs(a[j]))
+    {
+        return;
+    }
+    else
+    {
+        int temp;
+        temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+        return;
+    }
+}
